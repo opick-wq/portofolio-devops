@@ -1,127 +1,85 @@
-import { Cloud, Container, GitBranch, Headphones, MonitorCog, Server, ShieldCheck, Workflow, Wrench } from "lucide-react";
-
 const skills = [
-  { icon: Server, title: "Server Infrastructure", text: "Administrasi Linux server, hardening dasar, manajemen service, deployment aplikasi, dan troubleshooting production." },
-  { icon: Workflow, title: "CI/CD Automation", text: "Membangun pipeline otomatis untuk build, test, dan deployment menggunakan Jenkins, GitHub Actions, dan GitLab CI." },
-  { icon: Cloud, title: "Cloud Infrastructure", text: "Pengelolaan infrastruktur cloud seperti AWS EC2, S3, IAM, VPC, dan deployment aplikasi berbasis cloud." },
-  { icon: Container, title: "Docker & Container", text: "Containerization aplikasi, Docker Compose, image optimization, restart policy, dan deployment service yang stabil." },
-  { icon: Wrench, title: "IaC & Automation", text: "Otomatisasi konfigurasi dan provisioning dengan Ansible dan Terraform untuk environment yang konsisten." },
-  { icon: MonitorCog, title: "Monitoring System", text: "Observability dengan Prometheus dan Grafana untuk memantau performa, resource, dan availability server." },
-  { icon: Headphones, title: "IT Support", text: "Dukungan teknis end-user, instalasi sistem, jaringan dasar, backup, maintenance, dan problem solving cepat." },
-  { icon: ShieldCheck, title: "Reliability & Security", text: "Fokus pada uptime, backup, permission, patching, log inspection, dan praktik keamanan operasional." }
+  ["Server Infrastructure", "Administrasi Linux server, hardening dasar, backup, troubleshooting service, DNS, web server, dan optimasi performa."],
+  ["Docker & Container", "Membuat Dockerfile, docker-compose, deployment aplikasi, isolasi service, dan strategi restart otomatis."],
+  ["CI/CD Automation", "Pipeline build-test-deploy dengan Jenkins dan GitHub Actions untuk mempercepat delivery aplikasi."],
+  ["Cloud AWS", "Pengelolaan EC2, S3, IAM, VPC, Security Group, dan deployment workload cloud yang aman dan efisien."],
+  ["Infrastructure as Code", "Provisioning infrastruktur menggunakan Terraform agar environment konsisten dan mudah direplikasi."],
+  ["Ansible Automation", "Otomatisasi konfigurasi server, instalasi paket, setup aplikasi, dan deployment berbasis playbook."],
+  ["Monitoring", "Observability dengan Prometheus dan Grafana untuk metrik, alerting, dashboard, dan analisis insiden."],
+  ["IT Support", "Troubleshooting jaringan, perangkat kerja, sistem operasi, aplikasi, user support, dan dokumentasi teknis."],
 ];
 
-const tools = ["AWS", "Docker", "Docker Compose", "Ansible", "Terraform", "Jenkins", "Prometheus", "Grafana", "Linux", "Nginx", "GitHub", "CI/CD"];
-
 const projects = [
-  {
-    title: "Dockerized Web Deployment",
-    desc: "Membungkus aplikasi web ke container Nginx dengan restart: always agar otomatis pulih setelah reboot atau mati listrik.",
-    stack: "Docker, Nginx, Compose"
-  },
-  {
-    title: "CI/CD Pipeline Automation",
-    desc: "Pipeline otomatis untuk build, test, dan deployment sehingga proses rilis lebih cepat, konsisten, dan minim error manual.",
-    stack: "Jenkins, GitHub Actions, Linux"
-  },
-  {
-    title: "Infrastructure Monitoring Dashboard",
-    desc: "Dashboard monitoring resource server dan service untuk mendeteksi masalah sejak dini dan menjaga ketersediaan layanan.",
-    stack: "Prometheus, Grafana, Node Exporter"
-  }
+  ["Dockerized Portfolio", "Website React dibungkus dengan Nginx dan Docker Compose, menggunakan restart: always untuk auto-recovery setelah reboot."],
+  ["CI/CD Pipeline", "Rancangan pipeline Jenkins untuk build, test, publish image Docker, dan deployment otomatis ke server."],
+  ["Monitoring Stack", "Desain monitoring server dan container dengan Prometheus, Node Exporter, dan dashboard Grafana."],
 ];
 
 function App() {
   return (
-    <div className="page-shell">
+    <main>
       <nav className="navbar">
-        <a className="brand" href="#home">MSI</a>
-        <div className="nav-links">
-          <a href="#about">Profil</a>
+        <span className="brand">MSI</span>
+        <div>
           <a href="#skills">Keahlian</a>
-          <a href="#projects">Project</a>
+          <a href="#projects">Proyek</a>
           <a href="#contact">Kontak</a>
         </div>
       </nav>
 
-      <header id="home" className="hero section">
-        <div className="hero-content">
-          <p className="eyebrow">DevOps Engineer • IT Support • Cloud Infrastructure</p>
-          <h1>Muhammad Sultan Ihsan</h1>
-          <p className="hero-text">
-            Saya membantu bisnis dan tim teknis membangun infrastruktur server yang stabil,
-            otomatis, mudah dimonitor, dan siap berjalan kembali setelah gangguan.
-          </p>
-          <div className="hero-actions">
-            <a className="btn primary" href="#projects">Lihat Project</a>
-            <a className="btn secondary" href="#contact">Hubungi Saya</a>
-          </div>
+      <section className="hero">
+        <p className="eyebrow">DevOps Engineer • IT Support • Cloud Infrastructure</p>
+        <h1>Muhammad Sultan Ihsan</h1>
+        <p className="lead">
+          Saya membantu bisnis membangun infrastruktur server yang stabil, pipeline deployment yang otomatis,
+          dan sistem monitoring yang mudah dipantau. Fokus saya adalah reliability, automation, security,
+          dan operasional IT yang rapi.
+        </p>
+        <div className="heroActions">
+          <a className="button primary" href="#contact">Hubungi Saya</a>
+          <a className="button secondary" href="#projects">Lihat Proyek</a>
         </div>
-        <div className="hero-card">
-          <GitBranch size={42} />
-          <h2>Reliable Deployment</h2>
-          <p>Docker, CI/CD, monitoring, dan automation untuk workflow production yang lebih aman.</p>
+      </section>
+
+      <section className="stats">
+        <div><strong>24/7</strong><span>Mindset reliability</span></div>
+        <div><strong>CI/CD</strong><span>Automation workflow</span></div>
+        <div><strong>Cloud</strong><span>AWS, Docker, Terraform</span></div>
+      </section>
+
+      <section className="section" id="skills">
+        <p className="eyebrow">Core Expertise</p>
+        <h2>Keahlian DevOps & IT Support</h2>
+        <div className="grid">
+          {skills.map(([title, text]) => (
+            <article className="card" key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
         </div>
-      </header>
+      </section>
 
-      <main>
-        <section id="about" className="section about-grid">
-          <div>
-            <p className="eyebrow">Tentang Saya</p>
-            <h2>Fokus pada infrastruktur yang rapi, stabil, dan mudah dikelola.</h2>
-          </div>
-          <p>
-            Saya memiliki minat kuat pada DevOps dan IT Support, terutama dalam pengelolaan server Linux,
-            deployment aplikasi, Docker, CI/CD, cloud AWS, otomasi konfigurasi, dan monitoring sistem.
-            Tujuan saya adalah membuat proses operasional IT menjadi lebih efisien, terdokumentasi,
-            dan siap menghadapi kebutuhan produksi.
-          </p>
-        </section>
+      <section className="section" id="projects">
+        <p className="eyebrow">Selected Work</p>
+        <h2>Contoh Proyek</h2>
+        <div className="grid three">
+          {projects.map(([title, text]) => (
+            <article className="card project" key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <section id="skills" className="section">
-          <p className="eyebrow">Keahlian Utama</p>
-          <h2>Skillset DevOps & IT Support</h2>
-          <div className="skills-grid">
-            {skills.map(({ icon: Icon, title, text }) => (
-              <article className="skill-card" key={title}>
-                <Icon className="card-icon" />
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section tools-section">
-          <p className="eyebrow">Tools & Technology</p>
-          <h2>Teknologi yang Saya Kuasai</h2>
-          <div className="tool-cloud">
-            {tools.map((tool) => <span key={tool}>{tool}</span>)}
-          </div>
-        </section>
-
-        <section id="projects" className="section">
-          <p className="eyebrow">Portfolio Project</p>
-          <h2>Contoh Area Pekerjaan</h2>
-          <div className="projects-grid">
-            {projects.map((project) => (
-              <article className="project-card" key={project.title}>
-                <h3>{project.title}</h3>
-                <p>{project.desc}</p>
-                <strong>{project.stack}</strong>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="contact" className="section contact-card">
-          <p className="eyebrow">Kontak</p>
-          <h2>Siap membantu kebutuhan DevOps dan IT Support Anda.</h2>
-          <p>Email: <a href="mailto:ikgsanikhsan93@gmail.com">ikgsanikhsan93@gmail.com</a></p>
-          <p>GitHub: <a href="https://github.com/opick-wq" target="_blank" rel="noreferrer">github.com/opick-wq</a></p>
-        </section>
-      </main>
-    </div>
+      <section className="section contact" id="contact">
+        <p className="eyebrow">Contact</p>
+        <h2>Siap membantu deployment dan operasional server Anda.</h2>
+        <p>Email: <a href="mailto:ikgsanikhsan93@gmail.com">ikgsanikhsan93@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/opick-wq" target="_blank" rel="noreferrer">github.com/opick-wq</a></p>
+      </section>
+    </main>
   );
 }
 

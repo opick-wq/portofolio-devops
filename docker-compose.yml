@@ -1,8 +1,8 @@
 services:
   portfolio:
-    build: .
     image: portfolio-devops:latest
     container_name: portfolio_website
     restart: always
+    pull_policy: never
     ports:
       - "8085:80"
